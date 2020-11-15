@@ -1,0 +1,2 @@
+# vimenv
+Initialize vimrc
