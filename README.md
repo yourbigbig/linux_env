@@ -5,5 +5,5 @@ Usage
 
 git clone  https://github.com/yourbigbig/vimenv.git
 
-
-sudo ./inti.sh
+cd vimenv
+sudo ./init.sh
