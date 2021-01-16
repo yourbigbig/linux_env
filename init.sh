@@ -41,6 +41,8 @@ git config --global alias.lggeturl "config --get remote.origin.url"
 git config --global alias.ad "add ."
 git config --global alias.lgm "commit -m"
 git config --global alias.st "status"
+git config --global alias.hr "--hard reset"
+git config --global alias.sr "--soft reset"
 
 
 echo Config done
