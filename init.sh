@@ -37,7 +37,7 @@ fi
 git config --global user.email "DreamYangjw@outlook.com"
 git config --global user.name "yangjunwei"
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-git config --global alias.lggeturl "config --get remote.origin.url"
+git config --global alias.url "config --get remote.origin.url"
 git config --global alias.ad "add ."
 git config --global alias.lgm "commit -m"
 git config --global alias.st "status"
