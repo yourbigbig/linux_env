@@ -1,14 +1,14 @@
 #!/bin/bash
 
 ################################  your config   ##################################
-NAME="yangjunwei"
-EMAIL="DreamYangjw@outlook.com"
+NAME="yourname"
+EMAIL="your email"
 
 ################################# author  info ###################################
 echo -**********************************
 echo -Email:DreamYangJW@outlook.com
 echo -https://github.com/yourbigbig/linux_env
-echo -version:1.3
+echo -version:1.4
 echo -***********************************
 #################################   functions   ###################################
 checksoft()
