@@ -32,7 +32,10 @@ if [ ! -f ~/.ssh/id_rsa ];then
 ssh-keygen -t rsa -C "DreamYangjw@outlook.com"
 fi
 
-
+#sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo cp ./sources.list_aliyun /etc/apt/sources.list
+#sudo cp ./sources.list_aliyun /etc/apt/sources.list
+sudo apt-get update
 
 git config --global user.email "DreamYangjw@outlook.com"
 git config --global user.name "yangjunwei"
