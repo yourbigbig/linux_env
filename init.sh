@@ -47,21 +47,28 @@ checksoft git
 
 ####################################################################################
 echo Config .vimrc.You can edit at ~/.vimrc and /etc/.vimrc.
-sed -i 's/Author:none/$NAME/g' .vimrc
-sudo cp .vimrc /etc/.vimrc
-sudo cp .vimrc ~/.vimrc
+if [ ! -f .vimrc ];then
+	cp .vimrc_bak .vimrc
+	echo config .vimrc.
+	sed -i "s|Author:none|Author: ${NAME}|g" .vimrc
+	sed -i "s|mail:none|mail: ${EMAIL}|g" .vimrc
+	sudo cp .vimrc /etc/.vimrc
+	sudo cp .vimrc ~/.vimrc
+else
+	echo .vimrc config is ok.
+fi
 
 #####################################################################################
 if [ ! -f ~/.ssh/id_rsa ];then
-ssh-keygen -t rsa -C "DreamYangjw@outlook.com"
+ssh-keygen -t rsa -C ${EMAIL}
 else
 	echo ssh-keygen is already config.
 fi
 
 #####################################################################################
 echo Config git alias.
-git config --global user.email "DreamYangjw@outlook.com"
-git config --global user.name "yangjunwei"
+git config --global user.email ${EMAIL}
+git config --global user.name  ${NAME}
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.url "config --get remote.origin.url"
 git config --global alias.ad "add ."
