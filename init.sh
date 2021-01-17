@@ -1,4 +1,12 @@
 #!/bin/bash
+NAME="yangjunwei"
+EMAIL="DreamYangjw@outlook.com"
+
+echo **********************************
+echo Email:DreamYangJW@outlook.com
+echo github:https://github.com/yourbigbig/linux_env
+echo version:1.3
+echo ***********************************
 checksoft()
 {
     res=(`whereis $1`)
@@ -16,7 +24,7 @@ checksoft_isrun()
     if  [ -z "$ret" ]; then
         sudo apt-get install $2
     else
-        echo "$2 is  installed"
+        echo "$2 is already installed."
     fi  
 }
 
@@ -49,4 +57,4 @@ git config --global alias.sr "--soft reset"
 git config --global alias.ck "checkout ."
 
 
-echo Config done
+echo Config Done
