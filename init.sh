@@ -33,11 +33,12 @@ checksoft_isrun()
 }
 
 ###################################################################################
-#sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+if [ ! -f /etc/apt/sources.list_bak ];then
+sudo cp /etc/apt/sources.list /etc/apt/sources.list_bak
 sudo cp ./sources.list_aliyun /etc/apt/sources.list
 #sudo cp ./sources.list_aliyun /etc/apt/sources.list
+fi
 sudo apt-get update
-
 ###############################  checksoft is exsit ################################
 checksoft_isrun ssh openssh-server
 checksoft vim
