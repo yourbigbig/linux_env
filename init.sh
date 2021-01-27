@@ -13,6 +13,8 @@ echo -https:${github}
 echo -version:${version}
 echo -***********************************
 #################################   functions   ###################################
+aliasPATH=~/.alias
+rm ${aliasPATH}
 checksoft()
 {
     res=(`whereis $1`)
@@ -33,6 +35,9 @@ checksoft_isrun()
         echo "$2 is already installed."
     fi  
 }
+
+
+
 set_alias_to_config()
 {
     if [ "$3" == "file" ];then
@@ -52,6 +57,7 @@ set_alias_to_config()
             fi
         fi
     echo config $1 ...
+    echo $1 >>  ${aliasPATH}
     sudo echo alias $1=${current_path}$2>>~/.bashrc
     sudo echo alias $1=${current_path}$2>>~/.profile
     sudo echo alias $1=${current_path}$2>>/etc/profile
@@ -64,6 +70,7 @@ sudo cp /etc/apt/sources.list /etc/apt/sources.list_bak
 sudo cp ./sources.list_aliyun /etc/apt/sources.list
 #sudo cp ./sources.list_aliyun /etc/apt/sources.list
 fi
+echo 更新数据源（apt-get update）
 sudo apt-get update
 ###########################  checksoft is exsit and install #######################
 checksoft_isrun ssh openssh-server
@@ -116,7 +123,7 @@ set_alias_to_config "uart"  uart_cu.sh file $1
 set_alias_to_config "sshkey" "'cat ~/.ssh/id_rsa.pub'" none $1
 set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
                             -Email:${Email}\n -https:${github}\n -version:${version}\n\
-                            -**********************************\n\"'" none $1
+                            -**********************************\nsupport alias:\"&&cat ${aliasPATH}'" none $1
 
 ##################################      end         ################################
 echo Config Done.Thank you for using.
