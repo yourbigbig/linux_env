@@ -77,7 +77,8 @@ git config --global alias.lgm "commit -m"
 git config --global alias.st "status"
 git config --global alias.hr "--hard reset"
 git config --global alias.sr "--soft reset"
-git config --global alias.ck "checkout ."
-
+git config --global alias.ck "checkout"
+git config --global alias.seturl "remote set-url origin"
+git config --global alias.addurl  "remote add origin"
 echo Config Done.Thank you for using.
 
