@@ -107,7 +107,7 @@ git config --global alias.sr "--soft reset"
 git config --global alias.ck "checkout"
 git config --global alias.seturl "remote set-url origin"
 git config --global alias.addurl  "remote add origin"
-echo Config Done.Thank you for using.
+
 ################################## config env alias ################################
 
 set_alias_to_config "jtag"  jtag.sh file $1
@@ -117,3 +117,6 @@ set_alias_to_config "sshkey" "'cat ~/.ssh/id_rsa.pub'" none $1
 set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
                             -Email:${Email}\n -https:${github}\n -version:${version}\n\
                             -**********************************\n\"'" none $1
+
+##################################      end         ################################
+echo Config Done.Thank you for using.
