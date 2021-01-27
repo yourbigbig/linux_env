@@ -45,7 +45,7 @@ checksoft vim
 checksoft gcc
 checksoft minicom
 checksoft git
-
+checksoft cu
 ####################################################################################
 echo Config .vimrc.You can edit at ~/.vimrc and /etc/.vimrc.
 if [ ! -f .vimrc ];then
