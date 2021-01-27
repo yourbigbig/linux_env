@@ -1,14 +1,16 @@
 #!/bin/bash
-
+version=1.4
+Email=DreamYangJW@outlook.com
+github=//github.com/yourbigbig/linux_env
 ################################  your config   ##################################
 NAME="yourname"
 EMAIL="your email"
 
 ################################# author  info ###################################
 echo -**********************************
-echo -Email:DreamYangJW@outlook.com
-echo -https://github.com/yourbigbig/linux_env
-echo -version:1.4
+echo -Email:${Email}
+echo -https:${github}
+echo -version:${version}
 echo -***********************************
 #################################   functions   ###################################
 checksoft()
@@ -31,22 +33,47 @@ checksoft_isrun()
         echo "$2 is already installed."
     fi  
 }
-
-###################################################################################
+set_alias_to_config()
+{
+    if [ "$3" == "file" ];then
+        current_path=`pwd`/
+    else
+        current_path=""
+    fi
+    echo Remove $1 ...
+    sudo sed -i "/$1/d" ~/.bashrc
+    sudo sed -i "/$1/d" ~/.profile
+    sudo sed -i "/$1/d" /etc/profile
+    sudo sed -i "/$1/d" /etc/bash.bashrc
+    if [ $# == 3 ];then
+        if [ "$3" == "file" ];then
+            if [ ! -f $2 ];then
+            return 0
+            fi
+        fi
+    echo config $1 ...
+    sudo echo alias $1=${current_path}$2>>~/.bashrc
+    sudo echo alias $1=${current_path}$2>>~/.profile
+    sudo echo alias $1=${current_path}$2>>/etc/profile
+    sudo echo alias $1=${current_path}$2>>/etc/bash.bashrc
+    fi
+}
+################################## config sources  ################################
 if [ ! -f /etc/apt/sources.list_bak ];then
 sudo cp /etc/apt/sources.list /etc/apt/sources.list_bak
 sudo cp ./sources.list_aliyun /etc/apt/sources.list
 #sudo cp ./sources.list_aliyun /etc/apt/sources.list
 fi
 sudo apt-get update
-###############################  checksoft is exsit ################################
+###########################  checksoft is exsit and install #######################
 checksoft_isrun ssh openssh-server
 checksoft vim
 checksoft gcc
 checksoft minicom
 checksoft git
 checksoft cu
-####################################################################################
+checksoft lsof
+###############################   config .vimrc #####################################
 echo Config .vimrc.You can edit at ~/.vimrc and /etc/.vimrc.
 if [ ! -f .vimrc ];then
 	cp .vimrc_bak .vimrc
@@ -59,14 +86,14 @@ else
 	echo .vimrc config is ok.
 fi
 
-#####################################################################################
+################################## creat ssh-keygen #################################
 if [ ! -f ~/.ssh/id_rsa ];then
 ssh-keygen -t rsa -C ${EMAIL}
 else
 	echo ssh-keygen is already config.
 fi
 
-#####################################################################################
+################################## config git alias ################################
 echo Config git alias.
 git config --global user.email ${EMAIL}
 git config --global user.name  ${NAME}
@@ -81,4 +108,12 @@ git config --global alias.ck "checkout"
 git config --global alias.seturl "remote set-url origin"
 git config --global alias.addurl  "remote add origin"
 echo Config Done.Thank you for using.
+################################## config env alias ################################
 
+set_alias_to_config "jtag"  jtag.sh file $1
+set_alias_to_config "uart"  uart_cu.sh file $1
+
+set_alias_to_config "sshkey" "'cat ~/.ssh/id_rsa.pub'" none $1
+set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
+                            -Email:${Email}\n -https:${github}\n -version:${version}\n\
+                            -**********************************\n\"'" none $1

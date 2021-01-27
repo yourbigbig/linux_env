@@ -1,1 +1,4 @@
 *.vimrc
+*.userlog
+*.name*
+*.userlog
