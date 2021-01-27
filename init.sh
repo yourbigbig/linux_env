@@ -1,5 +1,5 @@
 #!/bin/bash
-version=1.4
+version=1.5
 Email=DreamYangJW@outlook.com
 github=//github.com/yourbigbig/linux_env
 ################################  your config   ##################################

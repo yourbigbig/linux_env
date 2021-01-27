@@ -9,9 +9,13 @@ echo_info()
 {
     cd /dev
     echo 当前主机连接的设备有：
-    echo ----------------------
-    ls ttyUSB*
-    echo ---------------------- 
+    echo --------------------------
+    if [ -f /dev/ttyUSB* ] ;then
+        ls ttyUSB*
+    else
+        echo 同学，没有串口连接啦！
+    fi
+    echo --------------------------
     echo 
     echo 请使用uart [0-9]+$1串口 
     echo 例如：uart 0 $2 来$1串口0'('ttyUSB0')'
