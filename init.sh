@@ -46,8 +46,8 @@ set_alias_to_config()
         current_path=""
     fi
     echo Remove $1 ...
-    sudo sed -i "/$1/d" ~/.bashrc
-    sudo sed -i "/$1/d" ~/.profile
+    sed -i "/$1/d" ~/.bashrc
+    sed -i "/$1/d" ~/.profile
     sudo sed -i "/$1/d" /etc/profile
     sudo sed -i "/$1/d" /etc/bash.bashrc
     if [ $# == 3 ];then
@@ -58,8 +58,8 @@ set_alias_to_config()
         fi
     echo config $1 ...
     echo $1 >>  ${aliasPATH}
-    sudo echo alias $1=${current_path}$2>>~/.bashrc
-    sudo echo alias $1=${current_path}$2>>~/.profile
+    echo alias $1=${current_path}$2>>~/.bashrc
+    echo alias $1=${current_path}$2>>~/.profile
     sudo echo alias $1=${current_path}$2>>/etc/profile
     sudo echo alias $1=${current_path}$2>>/etc/bash.bashrc
     fi
