@@ -121,8 +121,8 @@ set_alias_to_config "jtag"  jtag.sh file $1
 set_alias_to_config "uart"  uart_cu.sh file $1
 set_alias_to_config "mk"  mkill.sh file $1
 
-
-set_alias_to_config "cpolarall" "'nohup cpolar start-all -config=~/.cpolar/cpolar.yml -log=stdout &'" none $1
+homePaht=`echo ~`
+set_alias_to_config "cpolarall" "'nohup cpolar start-all -config=${homePaht}/.cpolar/cpolar.yml -log=stdout &'" none $1
 set_alias_to_config "sshkey" "'cat ~/.ssh/id_rsa.pub'" none $1
 set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
                             -Email:${Email}\n -https:${github}\n -version:${version}\n\
