@@ -120,6 +120,7 @@ git config --global alias.addurl  "remote add origin"
 set_alias_to_config "jtag"  jtag.sh file $1
 set_alias_to_config "uart"  uart_cu.sh file $1
 
+
 set_alias_to_config "sshkey" "'cat ~/.ssh/id_rsa.pub'" none $1
 set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
                             -Email:${Email}\n -https:${github}\n -version:${version}\n\
