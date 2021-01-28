@@ -1,5 +1,7 @@
 # vimenv
 
+该项目功能初始化ubuntu新系统
+
 使用方法（加黑部分必须）
 
 **git clone  https://github.com/yourbigbig/vimenv.git**
@@ -14,7 +16,7 @@ config your email
 
 **sudo ./init.sh**
 
-该项目功能初始化ubuntu新系统
+
 
 **功能一 配置软件源为阿里源：**
     
@@ -43,9 +45,8 @@ config your email
 
 **功能四 生成ssh-keygen**
 
-提供 sshkey快速查看
+提供 sshkey 命令 快速查看公钥
 
-**功能四 生成ssh-keygen**
 
 **功能五 配置git alias**
 
@@ -57,9 +58,17 @@ set_alias_to_config "jtag"  jtag.sh file $1
 
 set_alias_to_config "uart"  uart_cu.sh file $1
 
+set_alias_to_config "mk"  mkill.sh file $1
+
 set_alias_to_config "sshkey" "'cat ~/.ssh/id_rsa.pub'" none $1
 
 **功能七 自定义功能--串口**
+
 欢迎大家使用**uart**体验
 
+**功能八 安装cpolar**
+
+支持x86_x64和arm平台
+
+并配有最简单的配置文件参考
 

@@ -1,0 +1,10 @@
+tunnels:
+  web:
+    addr: 8080
+    proto: http
+    region: cn_vip
+  ssh:
+    addr: 22
+    proto: tcp 
+    region: cn_vip
+    # remote_addr: 1.tcp.vip.cpolar.cn:XXXX

@@ -119,12 +119,37 @@ git config --global alias.addurl  "remote add origin"
 
 set_alias_to_config "jtag"  jtag.sh file $1
 set_alias_to_config "uart"  uart_cu.sh file $1
-
+set_alias_to_config "mk"  mkill.sh file $1
 
 set_alias_to_config "sshkey" "'cat ~/.ssh/id_rsa.pub'" none $1
 set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
                             -Email:${Email}\n -https:${github}\n -version:${version}\n\
                             -**********************************\nsupport alias:\"&&cat ${aliasPATH}'" none $1
+#################################     cpolar         ################################
 
+ res=(`whereis cpolar`)
+    # echo ${#res[*]}
+    if  [ ${#res[*]}} == 1 ]; then
+        MK_ARCH=`uname -m`
+
+        if [ "x86_64"=="${MK_ARCH}" ];then
+            echo ${MK_ARCH}
+            wget https://www.cpolar.com/static/downloads/cpolar-stable-linux-amd64.zip
+        elif  "armv7l"=="${MK_ARCH}"];then
+            echo ${MK_ARCH}
+            wget https://www.cpolar.com/static/downloads/cpolar-stable-linux-arm.zip
+        else
+            echo 未知平台，无法安装cpolar.
+        fi
+
+        if [ -f cpolar-stable-linux-amd64.zip -o -f cpolar-stable-linux-arm.zip ];then
+            unzip cpolar-stable-linux-amd64.zip
+            sudo mv cpolar /usr/local/bin
+        fi
+        echo cpolar installed.
+    else
+        echo cpolar is already installed.
+    fi
+   
 ##################################      end         ################################
 echo Config Done.Thank you for using.
