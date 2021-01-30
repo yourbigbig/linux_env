@@ -80,6 +80,12 @@ checksoft minicom
 checksoft git
 checksoft cu
 checksoft lsof
+checksoft nfs-kernel-server
+checksoft rpcbind
+
+checksoft tftp-hpa 
+checksoft tftpd-hpa
+checksoft xinetd
 ###############################   config .vimrc #####################################
 echo Config .vimrc.You can edit at ~/.vimrc and /etc/.vimrc.
 if [ ! -f .vimrc ];then
@@ -152,6 +158,8 @@ set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
     else
         echo cpolar is already installed.
     fi
-   
+###############################      your shell         #############################
+sudo ./nfs_tftp_etc.sh
+
 ##################################      end         ################################
 echo Config Done.Thank you for using.
