@@ -1,4 +1,4 @@
-if [ -f /dev/ttyUSB* ] ;then
+if [ -e /dev/ttyUSB* ] ;then
 sudo chmod 777 /dev/ttyUSB*
 fi
 cu_stat=''
@@ -10,7 +10,7 @@ echo_info()
     cd /dev
     echo 当前主机连接的设备有：
     echo --------------------------
-    if [ -f /dev/ttyUSB* ] ;then
+    if [ -e /dev/ttyUSB* ] ;then
         ls ttyUSB*
     else
         echo 同学，没有串口连接啦！
