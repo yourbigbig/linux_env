@@ -71,7 +71,9 @@ sudo cp ./sources.list_aliyun /etc/apt/sources.list
 #sudo cp ./sources.list_aliyun /etc/apt/sources.list
 fi
 echo 更新数据源（apt-get update）
+if [ ! $1 == n ];then
 sudo apt-get update
+fi
 ###########################  checksoft is exsit and install #######################
 checksoft_isrun ssh openssh-server
 checksoft vim
@@ -159,7 +161,7 @@ set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
         echo cpolar is already installed.
     fi
 ###############################      your shell         #############################
-sudo ./nfs_tftp_etc.sh
+# sudo ./nfs_tftp_etc.sh
 
 ##################################      end         ################################
 echo Config Done.Thank you for using.

@@ -1,4 +1,4 @@
-NFSPATH=/home/nfs
+NFSPATH=/yangjunwei/nfs
 TFTPPATH= /home/tftpboot
 # NFS服务器配置
 

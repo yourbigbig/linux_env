@@ -1,0 +1,9 @@
+ * Stopping NFS kernel daemon
+   ...done.
+ * Unexporting directories for NFS kernel daemon...
+   ...done.
+ * Exporting directories for NFS kernel daemon...
+   ...done.
+ * Starting NFS kernel daemon
+
+ * Not starting: portmapper is not running
