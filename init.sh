@@ -84,6 +84,8 @@ checksoft cu
 checksoft lsof
 checksoft nfs-kernel-server
 checksoft rpcbind
+checksoft android-tools-adb
+checksoft android-tools-fastboot
 
 checksoft tftp-hpa 
 checksoft tftpd-hpa
@@ -145,7 +147,7 @@ set_alias_to_config "ybb" "'echo -e \" -**********************************\n\
         if [ "x86_64"=="${MK_ARCH}" ];then
             echo ${MK_ARCH}
             wget https://www.cpolar.com/static/downloads/cpolar-stable-linux-amd64.zip
-        elif  "armv7l"=="${MK_ARCH}"];then
+        elif [ "armv7l"=="${MK_ARCH}" ];then
             echo ${MK_ARCH}
             wget https://www.cpolar.com/static/downloads/cpolar-stable-linux-arm.zip
         else
