@@ -104,8 +104,9 @@ else
 fi
 
 ################################## creat ssh-keygen #################################
-if [ ! -f ~/.ssh/id_rsa ];then
-ssh-keygen -t rsa -C ${EMAIL}
+if [ ! -e ~/.ssh/id_rsa ];then
+echo	ssh-keygen -t rsa -C "${EMAIL}"
+	ssh-keygen -t rsa -C "${EMAIL}"
 else
 	echo ssh-keygen is already config.
 fi
