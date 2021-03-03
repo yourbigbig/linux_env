@@ -129,7 +129,7 @@ git config --global alias.addurl  "remote add origin"
 ################################## config env alias ################################
 
 set_alias_to_config "jtag"  jtag.sh file $1
-set_alias_to_config "uart"  uart_cu.sh file $1
+set_alias_to_config "uart"  uart_minicom.sh file $1
 set_alias_to_config "mk"  mkill.sh file $1
 
 homePaht=`echo ~`
