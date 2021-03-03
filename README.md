@@ -4,9 +4,9 @@
 
 使用方法（加黑部分必须）
 
-**git clone  https://github.com/yourbigbig/vimenv.git**
+**git clone  https://github.com/yourbigbig/linux_env.git**
 
-**cd vimenv**
+**cd linux_env**
 
 vim init.sh
 
