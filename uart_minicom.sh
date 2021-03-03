@@ -13,6 +13,17 @@ cu_stat=''
 NAMEPATH=${0%/*}/.name$1
 USERLOGPATH=${0%/*}/.userlog
 
+
+minicftxt=.minirc.$1
+if [ -e ${minicftxt} ];then
+    echo  串口默认波特率:115200
+else 
+    cp ~/.minicom.def ~/${minicftxt}
+    sed -i "s|USB0|USB$1|g"  ~/${minicftxt}
+    echo 创建默认配置成功
+fi
+
+
 echo_info()
 {
     cd /dev
@@ -111,6 +122,7 @@ done
 sleep 4
 echo UART$1释放成功
 echo `ps -aux|grep  "sudo minicom $1"|awk '{print $2}'` > user.prv
+
 sudo minicom $1
 }
 
